@@ -16,7 +16,7 @@ function makeMove(cell, x, y) {
         movesTable[x][y] = "O";
         ++movesCounter;
     }
-    if (movesCounter >= 2 && movesCounter <= 8) {
+    if (movesCounter >= 4 && movesCounter <= 8) {
         let row1 = '',
             row2 = '',
             row3 = '';
