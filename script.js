@@ -17,9 +17,14 @@ function makeMove(cell, x, y) {
         ++movesCounter;
     }
     if (movesCounter >= 2 && movesCounter <= 8) {
-        let row1 = '', row2 = '', row3 = '';
-        let col1 = '', col2 = '', col3 = '';
-        let diag1 = '', diag2 = '';
+        let row1 = '',
+            row2 = '',
+            row3 = '';
+        let col1 = '',
+            col2 = '',
+            col3 = '';
+        let diag1 = '',
+            diag2 = '';
         for (let i = 0; i < 3; ++i) {
             row1 += movesTable[0][i];
             row2 += movesTable[1][i];
@@ -61,7 +66,7 @@ function endGame(status) {
       </div><button type="button" class="btn btn-primary" onclick="playAgain()">Play again!</button>`
     } else {
         document.getElementById("notification").innerHTML = `<hr><div class="alert alert-success" role="alert">
-        <strong>`+ status + `</strong> WON!
+        <strong>` + status + `</strong> WON!
       </div><button type="button" class="btn btn-primary" onclick="playAgain()">Play again!</button>`
     }
 }
