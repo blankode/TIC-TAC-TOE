@@ -17,32 +17,20 @@ function makeMove(cell, x, y) {
         ++movesCounter;
     }
     if (movesCounter >= 4 && movesCounter <= 8) {
-        let row1 = '',
-            row2 = '',
-            row3 = '';
-        let col1 = '',
-            col2 = '',
-            col3 = '';
-        let diag1 = '',
-            diag2 = '';
+        let validMoves = ['', '', '', '', '', '', '', ''];
         for (let i = 0; i < 3; ++i) {
-            row1 += movesTable[0][i];
-            row2 += movesTable[1][i];
-            row3 += movesTable[2][i];
-            col1 += movesTable[i][0];
-            col2 += movesTable[i][1];
-            col3 += movesTable[i][2];
-            diag1 += movesTable[i][i];
-            diag2 += movesTable[i][2 - i];
+            validMoves[0] += movesTable[0][i]; //first row
+            validMoves[1] += movesTable[1][i]; //second row
+            validMoves[2] += movesTable[2][i]; //third row
+            validMoves[3] += movesTable[i][0]; //first column
+            validMoves[4] += movesTable[i][1]; //second column
+            validMoves[5] += movesTable[i][2]; //third column
+            validMoves[6] += movesTable[i][i]; //main diagonal
+            validMoves[7] += movesTable[i][2 - i]; //secondary diagonal
         }
-        whoWon(row1);
-        whoWon(row2);
-        whoWon(row3);
-        whoWon(col1);
-        whoWon(col2);
-        whoWon(col3);
-        whoWon(diag1);
-        whoWon(diag2);
+        for (let move of validMoves) {
+            whoWon(move);
+        }
     } else if (movesCounter > 8) {
         endGame('draw');
     }
